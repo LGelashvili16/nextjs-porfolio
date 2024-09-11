@@ -4,9 +4,12 @@
 
 import * as Sentry from "@sentry/nextjs";
 
+const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
+
 Sentry.init({
-  // dsn: "https://f45c7331870b5751ed4a7e3e907eb690@o4507885286195200.ingest.de.sentry.io/4507885290324048",
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  dsn:
+    SENTRY_DSN ||
+    "https://f45c7331870b5751ed4a7e3e907eb690@o4507885286195200.ingest.de.sentry.io/4507885290324048",
 
   // Add optional integrations for additional features
   integrations: [
